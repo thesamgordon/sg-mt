@@ -47,7 +47,7 @@ export default function Home() {
 
   function handleContactMouseEnter() {
     contactControls.start({
-      "--mask-start": "100%",
+      "--mask-start": "0%",
       "--mask-end": "120%",
       filter: "blur(5px)",
       opacity: 0,
@@ -83,7 +83,7 @@ export default function Home() {
 
   function handleMouseEnter() {
     urlControls.start({
-      "--mask-start": "100%",
+      "--mask-start": "0%",
       "--mask-end": "120%",
       filter: "blur(5px)",
       opacity: 0,
