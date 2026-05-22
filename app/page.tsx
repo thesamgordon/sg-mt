@@ -17,11 +17,19 @@ export default function Home() {
   const urlControls = useAnimationControls();
   const overlayControls = useAnimationControls();
   const backgroundControls = useAnimationControls();
+  const grainControls = useAnimationControls();
 
   const transitionConfig = {
     duration: 0.6,
     ease: [0.84, 0, 0.13, 0.99],
   } as const;
+
+  useEffect(() => {
+    grainControls.start({
+      opacity: 0.2,
+      transition: { ease: [0, -0.005, 0.226, 1], duration: 3, delay: 0.8 },
+    });
+  }, [grainControls]);
 
   useEffect(() => {
     backgroundControls.start({
@@ -277,7 +285,11 @@ export default function Home() {
           className={styles.background}
         />
       </motion.div>
-      <div className={styles.grain} />
+      <motion.div
+        className={styles.grain}
+        initial={{ opacity: 0 }}
+        animate={grainControls}
+      />
     </div>
   );
 }
