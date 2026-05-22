@@ -270,7 +270,7 @@ export default function Home() {
         animate={backgroundControls}
       >
         <Image
-          src="/gradient-raw.png"
+          src="/gradient-raw.webp"
           alt="Gradient background"
           loading="eager"
           fill
