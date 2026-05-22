@@ -27,7 +27,7 @@ export default function Home() {
   useEffect(() => {
     grainControls.start({
       opacity: 0.2,
-      transition: { ease: [0, -0.005, 0.226, 1], duration: 3, delay: 0.8 },
+      transition: { ease: [0, -0.005, 0.226, 1], duration: 3, delay: 0.4 },
     });
   }, [grainControls]);
 
