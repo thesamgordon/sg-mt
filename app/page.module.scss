@@ -59,7 +59,7 @@
         align-items: center;
         gap: 1rem;
 
-        .url {
+        a {
             font-family: var(--font-inter);
             font-size: 1.2rem;
             text-decoration: none;
@@ -69,9 +69,57 @@
             letter-spacing: 0.02rem;
             text-decoration: underline;
 
+            -webkit-mask-image: linear-gradient(
+                to left,
+                rgba(0, 0, 0, 0) var(--mask-start),
+                rgba(0, 0, 0, 1) var(--mask-end)
+            );
+            mask-image: linear-gradient(
+                to left,
+                rgba(0, 0, 0, 0) var(--mask-start),
+                rgba(0, 0, 0, 1) var(--mask-end)
+            );
+
+            -webkit-mask-clip: no-clip;
+            mask-clip: no-clip;
+
             &:hover {
                 color: #fff;
             }
+        }
+
+        .url {
+            mask-image: linear-gradient(
+                to right,
+                transparent var(--mask-start),
+                black var(--mask-end)
+            );
+            -webkit-mask-image: linear-gradient(
+                to right,
+                transparent var(--mask-start),
+                black var(--mask-end)
+            );
+        }
+
+        .urlOverlay {
+            position: absolute;
+            top: 0;
+            left: 2.5rem;
+            overlay: visible;
+
+            -webkit-mask-image: linear-gradient(
+                to left,
+                rgba(0, 0, 0, 0) var(--mask-start),
+                rgba(0, 0, 0, 1) var(--mask-end)
+            );
+            mask-image: linear-gradient(
+                to left,
+                rgba(0, 0, 0, 0) var(--mask-start),
+                rgba(0, 0, 0, 1) var(--mask-end)
+            );
+
+            -webkit-mask-clip: no-clip;
+            mask-clip: no-clip;
         }
 
         svg {
@@ -96,8 +144,10 @@
 }
 
 .grain {
+    position: fixed;
+    bottom: -100px !important;
     width: 100%;
-    height: 100%;
+    height: 50%;
     z-index: 0;
     background-repeat: repeat;
     background-size: 300px;
