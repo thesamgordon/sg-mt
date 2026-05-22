@@ -15,6 +15,11 @@
     align-items: start;
     gap: 2rem;
     margin-bottom: 10rem;
+
+    @media (max-width: 1000px) {
+        min-width: 100%;
+        gap: 1.5rem;
+    }
 }
 
 .header {
@@ -39,6 +44,22 @@
         font-size: 1rem;
         margin: 0;
     }
+
+    @media (max-width: 1000px) {
+        .title {
+            font-size: 5rem;
+        }
+
+        .date {
+            font-size: 0.8rem;
+        }
+    }
+
+    @media (max-width: 700px) {
+        .date {
+            display: none;
+        }
+    }
 }
 
 .description {
@@ -46,6 +67,12 @@
     color: #c4c4c4;
     font-size: 1.2rem;
     max-width: 700px;
+}
+
+@media (max-width: 1000px) {
+    .description {
+        font-size: 1rem;
+    }
 }
 
 .links {
@@ -86,6 +113,10 @@
             &:hover {
                 color: #fff;
             }
+
+            @media (max-width: 1000px) {
+                font-size: 1rem;
+            }
         }
 
         .url {
@@ -120,13 +151,26 @@
 
             -webkit-mask-clip: no-clip;
             mask-clip: no-clip;
+
+            @media (max-width: 1000px) {
+                left: 2.2rem;
+            }
         }
 
         svg {
             width: 1.4rem;
             height: 1.4rem;
             padding-top: 0.2rem;
+
+            @media (max-width: 1000px) {
+                width: 1.2rem;
+                height: 1.2rem;
+            }
         }
+    }
+
+    @media (max-width: 1000px) {
+        gap: 0.3rem;
     }
 }
 
