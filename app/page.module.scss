@@ -28,6 +28,8 @@
     align-items: end;
     width: 100%;
     justify-content: space-between;
+    border-bottom: 0.5px solid #333333;
+    padding-bottom: 2rem;
 
     .title {
         font-family: var(--font-dm-serif-display);
@@ -46,6 +48,10 @@
     }
 
     @media (max-width: 1000px) {
+        & {
+            padding-bottom: 1.5rem;
+        }
+
         .title {
             font-size: 5rem;
         }
@@ -78,99 +84,98 @@
 .links {
     display: flex;
     flex-direction: column;
-    gap: 0.5rem;
+    border-top: 0.5px solid #333333;
+    width: 100%;
 
     .link {
         display: flex;
         flex-direction: row;
         align-items: center;
-        gap: 1rem;
+        height: 3rem;
+        border-bottom: 0.5px solid #333333;
+        transition: background 0.3s ease;
+        font-family: var(--font-inter);
+        font-weight: 500;
 
-        a {
-            font-family: var(--font-inter);
-            font-size: 1.2rem;
-            text-decoration: none;
-            margin-right: 1.5rem;
-            transition: color 0.3s;
-            font-weight: 400;
-            letter-spacing: 0.02rem;
-            text-decoration: underline;
+        .left {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            width: 100%;
+            gap: 1rem;
+            font-size: 1.1rem;
 
-            -webkit-mask-image: linear-gradient(
-                to left,
-                rgba(0, 0, 0, 0) var(--mask-start),
-                rgba(0, 0, 0, 1) var(--mask-end)
-            );
-            mask-image: linear-gradient(
-                to left,
-                rgba(0, 0, 0, 0) var(--mask-start),
-                rgba(0, 0, 0, 1) var(--mask-end)
-            );
+            svg {
+                width: 1.3rem;
+                height: 1.3rem;
 
-            -webkit-mask-clip: no-clip;
-            mask-clip: no-clip;
-
-            &:hover {
-                color: #fff;
-            }
-
-            @media (max-width: 1000px) {
-                font-size: 1rem;
+                @media (max-width: 1000px) {
+                    width: 1.2rem;
+                    height: 1.2rem;
+                }
             }
         }
 
-        .url {
-            mask-image: linear-gradient(
-                to right,
-                transparent var(--mask-start),
-                black var(--mask-end)
-            );
-            -webkit-mask-image: linear-gradient(
-                to right,
-                transparent var(--mask-start),
-                black var(--mask-end)
-            );
+        .right {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            opacity: 0;
+            transition:
+                opacity 0.3s ease,
+                transform 0.3s ease;
+
+            transform: translateX(-1rem);
+
+            p {
+                font-size: 0.8rem;
+                color: #888;
+                font-weight: 300;
+            }
+
+            .arrow {
+                width: 0.9rem;
+                height: 0.9rem;
+            }
         }
 
-        .urlOverlay {
+        &::before {
+            content: "";
             position: absolute;
             top: 0;
-            left: 2.5rem;
-            overlay: visible;
-
-            -webkit-mask-image: linear-gradient(
-                to left,
-                rgba(0, 0, 0, 0) var(--mask-start),
-                rgba(0, 0, 0, 1) var(--mask-end)
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(
+                to right,
+                transparent 40%,
+                #171717 100%
             );
-            mask-image: linear-gradient(
-                to left,
-                rgba(0, 0, 0, 0) var(--mask-start),
-                rgba(0, 0, 0, 1) var(--mask-end)
-            );
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            z-index: -1;
+        }
 
-            -webkit-mask-clip: no-clip;
-            mask-clip: no-clip;
+        &:hover::before {
+            opacity: 1;
+        }
 
-            @media (max-width: 1000px) {
-                left: 2.2rem;
+        &:hover {
+            .right {
+                opacity: 1;
+                transform: translateX(-0.5rem);
             }
         }
 
-        svg {
-            width: 1.4rem;
-            height: 1.4rem;
-            padding-top: 0.2rem;
-
-            @media (max-width: 1000px) {
-                width: 1.2rem;
-                height: 1.2rem;
+        &:active {
+            .right {
+                transform: translateX(-0.25rem);
             }
         }
-    }
 
-    @media (max-width: 1000px) {
-        gap: 0.3rem;
+        @media (max-width: 1000px) {
+            gap: 0.3rem;
+        }
     }
 }
 
@@ -185,6 +190,8 @@
     transform: translateZ(0);
     will-change: mask-image;
     backface-visibility: hidden;
+    user-select: none;
+    pointer-events: none;
 }
 
 .grain {
