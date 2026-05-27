@@ -92,6 +92,7 @@ export default function Home() {
             href="https://github.com/thesamgordon/fohs"
             onMouseDown={handleMouseDown}
             onMouseUp={handleMouseUp}
+            width="280px"
           >
             FOHS
           </Link>
