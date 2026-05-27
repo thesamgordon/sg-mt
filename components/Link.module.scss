@@ -1,0 +1,99 @@
+.linkWrapper {
+    position: relative;
+    display: inline-block;
+
+    &:hover {
+        .popupPreview {
+            opacity: 1;
+            visibility: visible;
+            transform: translateX(-50%) translateY(0);
+            filter: blur(0);
+        }
+    }
+}
+
+.link {
+    color: white;
+    text-decoration: none;
+    text-underline-offset: 4px;
+    transition: color 0.2s ease;
+    font-weight: 700;
+    filter: brightness(0.9);
+    transition: filter 0.4s ease;
+}
+
+.link:hover {
+    filter: brightness(1.2);
+}
+
+.link::before {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    filter: brightness(0.9);
+    background-color: white;
+
+    transition: filter 0.2s ease;
+}
+
+.link::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    z-index: 2;
+    background-color: white;
+
+    transition: width 0.4s ease;
+}
+
+.link:hover::after {
+    width: 100%;
+}
+
+.popupPreview {
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    transform: translateX(-50%) translateY(8px);
+    margin-bottom: 12px;
+    z-index: 50;
+    width: 260px;
+    height: 135px;
+    background-color: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 12px;
+    box-shadow:
+        0 10px 25px -5px rgba(0, 0, 0, 0.5),
+        0 8px 10px -6px rgba(0, 0, 0, 0.5);
+    overflow: hidden;
+    pointer-events: none;
+    opacity: 0;
+    visibility: hidden;
+    transition:
+        opacity 0.2s cubic-bezier(0.4, 0, 0.2, 1),
+        transform 0.2s cubic-bezier(0.4, 0, 0.2, 1),
+        filter 0.2s cubic-bezier(0.4, 0, 0.2, 1),
+        visibility 0.2s;
+    filter: blur(3px);
+
+    @supports (corner-shape: squircle) or (-webkit-corner-shape: squircle) {
+        .card {
+            corner-shape: squircle;
+            border-radius: 20px;
+        }
+    }
+
+    img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+        background-color: #f8fafc;
+    }
+}
