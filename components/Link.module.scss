@@ -61,18 +61,16 @@
     bottom: 100%;
     left: 50%;
     transform: translateX(-50%) translateY(8px);
-    margin-bottom: 12px;
+    height: 135px;
     z-index: 50;
     width: 260px;
-    height: 135px;
     background-color: #ffffff;
-    border: 1px solid #e2e8f0;
+    border: none;
     border-radius: 12px;
     box-shadow:
         0 10px 25px -5px rgba(0, 0, 0, 0.5),
         0 8px 10px -6px rgba(0, 0, 0, 0.5);
     overflow: hidden;
-    pointer-events: none;
     opacity: 0;
     visibility: hidden;
     transition:
@@ -82,8 +80,37 @@
         visibility 0.2s;
     filter: blur(3px);
 
+    &::after {
+        content: "";
+        position: absolute;
+        bottom: -15px;
+        left: 0;
+        width: 100%;
+        height: 15px;
+        background: transparent;
+        z-index: 2;
+    }
+
+    &:hover {
+        opacity: 1;
+        visibility: visible;
+        transform: translateX(-50%) translateY(0);
+        filter: blur(0);
+        cursor: pointer;
+
+        .arrow {
+            transform: rotate(45deg) translateX(0px);
+        }
+    }
+
+    &:active {
+        .arrow {
+            transform: rotate(45deg) translateX(1px) translateY(-1px);
+        }
+    }
+
     @supports (corner-shape: squircle) or (-webkit-corner-shape: squircle) {
-        .card {
+        & {
             corner-shape: squircle;
             border-radius: 20px;
         }
@@ -95,5 +122,40 @@
         object-fit: cover;
         display: block;
         background-color: #f8fafc;
+    }
+}
+
+.description {
+    position: absolute;
+    bottom: 0;
+    width: calc(100% - 4px);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0px 12px;
+    margin: 2px;
+
+    background-color: #121212;
+    border-radius: 12px;
+    box-shadow: black 0px 0px 24px -5px;
+
+    height: 30px;
+
+    .url {
+        font-size: 10px;
+        color: #888;
+        font-family: var(--font-inter);
+    }
+
+    .arrow {
+        margin-right: -3px;
+        transition: transform 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    @supports (corner-shape: squircle) or (-webkit-corner-shape: squircle) {
+        & {
+            corner-shape: squircle;
+            border-radius: 18px;
+        }
     }
 }

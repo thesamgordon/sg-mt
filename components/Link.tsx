@@ -7,8 +7,8 @@ interface LinkProps {
   href: string;
   popup?: boolean;
   width?: string;
-  onMouseDown?: React.MouseEventHandler<HTMLAnchorElement>;
-  onMouseUp?: React.MouseEventHandler<HTMLAnchorElement>;
+  onMouseDown?: React.MouseEventHandler<HTMLElement>;
+  onMouseUp?: React.MouseEventHandler<HTMLElement>;
 }
 
 export default function Link({
@@ -63,16 +63,21 @@ export default function Link({
         {children}
       </a>
       {popup && (
-        <div
+        <button
+          onMouseDown={onMouseDown}
+          onMouseUp={onMouseUp}
           className={styles.popupPreview}
+          onClick={(e) => {
+            e.preventDefault();
+            window.open(href, "_blank");
+          }}
           style={{
             width,
-            height: "135px",
           }}
         >
           <Image
-            height="800"
-            width="800"
+            height="1000"
+            width="1000"
             src={localPreviewImage}
             alt="Site layout preview"
             loading="eager"
@@ -80,7 +85,25 @@ export default function Link({
               (e.target as HTMLElement).style.display = "none";
             }}
           />
-        </div>
+          <div className={styles.description}>
+            <p className={styles.url}>{href}</p>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="12"
+              height="12"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="#C4C4C4"
+              strokeWidth="1"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              className={styles.arrow}
+            >
+              <path d="M7 7h10v10"></path>
+              <path d="M7 17 17 7"></path>
+            </svg>
+          </div>
+        </button>
       )}
     </div>
   );
