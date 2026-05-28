@@ -14,6 +14,10 @@
         .spacer {
             pointer-events: auto;
         }
+
+        .link::after {
+            width: 100%;
+        }
     }
 }
 
