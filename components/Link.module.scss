@@ -112,7 +112,7 @@
     @supports (corner-shape: squircle) or (-webkit-corner-shape: squircle) {
         & {
             corner-shape: squircle;
-            border-radius: 20px;
+            border-radius: 18px;
         }
     }
 
@@ -136,9 +136,8 @@
     margin: 2px;
 
     background-color: #121212;
-    border-radius: 12px;
+    border-radius: 10px;
     box-shadow: 0px 0px 24px -5px rgba(0, 0, 0, 0.7);
-
     height: 30px;
 
     .url {
@@ -155,7 +154,7 @@
     @supports (corner-shape: squircle) or (-webkit-corner-shape: squircle) {
         & {
             corner-shape: squircle;
-            border-radius: 18px;
+            border-radius: 16px;
         }
     }
 }
