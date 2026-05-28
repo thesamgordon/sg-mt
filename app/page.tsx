@@ -117,7 +117,7 @@ export default function Home() {
             delay: 0.3,
           }}
         >
-          You can find my work on my{" "}
+          You can find my work on{" "}
           <Link
             width="220px"
             href="https://github.com/thesamgordon"
@@ -126,7 +126,7 @@ export default function Home() {
           >
             GitHub
           </Link>{" "}
-          or reach out to me directly at over{" "}
+          or reach out to me directly over{" "}
           <Link
             href="mailto:sam@thesamgordon.com"
             popup={false}
