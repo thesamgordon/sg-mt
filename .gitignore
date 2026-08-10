@@ -49,4 +49,3 @@ next-env.d.ts
 !.dev.vars.example
 
 !.env.example
-public/previews/external/

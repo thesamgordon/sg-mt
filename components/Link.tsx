@@ -21,7 +21,6 @@ export default function Link({
 }: LinkProps) {
   const [showMobilePopup, setShowMobilePopup] = useState(false);
   const touchTimeout = useRef<NodeJS.Timeout | null>(null);
-
   const safeName = href
     .replace(/^https?:\/\//, "")
     .replace(/[^a-zA-Z0-9]/g, "-")
@@ -38,10 +37,21 @@ export default function Link({
     if (touchTimeout.current) {
       clearTimeout(touchTimeout.current);
     }
-
     if (showMobilePopup) {
       e.preventDefault();
       setShowMobilePopup(false);
+    }
+  };
+
+  const handlePopupClick = (e: React.MouseEvent) => {
+    e.preventDefault();
+    window.open(href, "_blank");
+  };
+
+  const handleKeyDown = (e: React.KeyboardEvent) => {
+    if (e.key === "Enter" || e.key === " ") {
+      e.preventDefault();
+      window.open(href, "_blank");
     }
   };
 
@@ -70,15 +80,14 @@ export default function Link({
               width: width,
             }}
           ></div>
-
-          <button
+          <div
+            role="button"
+            tabIndex={0}
             onMouseDown={onMouseDown}
             onMouseUp={onMouseUp}
             className={styles.popupPreview}
-            onClick={(e) => {
-              e.preventDefault();
-              window.open(href, "_blank");
-            }}
+            onClick={handlePopupClick}
+            onKeyDown={handleKeyDown}
             style={{
               width,
             }}
@@ -93,7 +102,7 @@ export default function Link({
                 (e.target as HTMLElement).style.display = "none";
               }}
             />
-            <div className={styles.description}>
+            {/*<div className={styles.description}>
               <p className={styles.url}>{href}</p>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -101,7 +110,7 @@ export default function Link({
                 height="12"
                 viewBox="0 0 24 24"
                 fill="none"
-                stroke="#C4C4C4"
+                stroke="#888"
                 strokeWidth="1"
                 strokeLinecap="round"
                 strokeLinejoin="round"
@@ -110,8 +119,8 @@ export default function Link({
                 <path d="M7 7h10v10"></path>
                 <path d="M7 17 17 7"></path>
               </svg>
-            </div>
-          </button>
+            </div>*/}
+          </div>
         </>
       )}
     </div>

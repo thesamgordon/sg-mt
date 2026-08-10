@@ -2,7 +2,6 @@
 
 import Link from "@/components/Link";
 import { motion, useAnimationControls } from "framer-motion";
-import Image from "next/image";
 import { useEffect } from "react";
 import styles from "./page.module.scss";
 
@@ -18,7 +17,7 @@ export default function Home() {
 
   useEffect(() => {
     grainControls.start({
-      opacity: 0.2,
+      opacity: 0.4,
       transition: { ease: [0, -0.005, 0.226, 1], duration: 3, delay: 0.4 },
     });
   }, [grainControls]);
@@ -26,7 +25,7 @@ export default function Home() {
   useEffect(() => {
     backgroundControls.start({
       y: 0,
-      opacity: 1,
+      opacity: 0.3,
       transition: { ease: [0, -0.005, 0.226, 1], duration: 3, delay: 0.8 },
     });
   }, [backgroundControls]);
@@ -48,21 +47,36 @@ export default function Home() {
   return (
     <div className={styles.page} onMouseUp={handleMouseUp}>
       <div className={styles.contentContainer}>
-        <motion.div
-          className={styles.header}
-          initial={{ opacity: 0, filter: "blur(10px)", y: 10 }}
-          animate={{ opacity: 1, filter: "blur(0px)", y: 0 }}
-          transition={{ ease: [0, -0.005, 0.226, 1], duration: 0.75 }}
-        >
-          <motion.h1 className={styles.title}>Sam Gordon</motion.h1>
-          <motion.p
-            className={styles.date}
-            initial={{ opacity: 0, filter: "blur(10px)", y: 10 }}
-            animate={{ opacity: 1, filter: "blur(0px)", y: 0 }}
-            transition={{ ease: [0, -0.005, 0.226, 1], duration: 0.75 }}
-          >
-            May 21, 2026
-          </motion.p>
+        <motion.div className={styles.header}>
+          <motion.div className={styles.titleSection}>
+            <motion.h1
+              className={styles.title}
+              initial={{ opacity: 0, filter: "blur(10px)", y: 10 }}
+              animate={{ opacity: 1, filter: "blur(0px)", y: 0 }}
+              transition={{
+                ease: [0, -0.005, 0.226, 1],
+                duration: 0.75,
+                delay: 0.0,
+              }}
+            >
+              Sam Gordon
+            </motion.h1>
+            <motion.div
+              className={styles.education}
+              initial={{ opacity: 0, filter: "blur(10px)", y: 10 }}
+              animate={{ opacity: 1, filter: "blur(0px)", y: 0 }}
+              transition={{
+                ease: [0, -0.005, 0.226, 1],
+                duration: 0.75,
+                delay: 0.075,
+              }}
+            >
+              Student at
+              <Link href="https://case.edu" width="250px">
+                Case Western Reserve University
+              </Link>
+            </motion.div>
+          </motion.div>
         </motion.div>
         <motion.p
           className={styles.description}
@@ -71,7 +85,7 @@ export default function Home() {
           transition={{
             ease: [0, -0.005, 0.226, 1],
             duration: 0.75,
-            delay: 0.1,
+            delay: 0.15,
           }}
         >
           As a theater enthusiast and a passionate developer, I work to create
@@ -84,7 +98,7 @@ export default function Home() {
           transition={{
             ease: [0, -0.005, 0.226, 1],
             duration: 0.75,
-            delay: 0.2,
+            delay: 0.225,
           }}
         >
           I&apos;m currently working on{" "}
@@ -119,7 +133,7 @@ export default function Home() {
         >
           You can find my work on{" "}
           <Link
-            width="220px"
+            width="250px"
             href="https://github.com/thesamgordon"
             onMouseDown={handleMouseDown}
             onMouseUp={handleMouseUp}
@@ -137,21 +151,25 @@ export default function Home() {
           </Link>
           .
         </motion.div>
+
+        <motion.p className={styles.date}
+          initial={{ opacity: 0, filter: "blur(5px)", y: 10 }}
+          animate={{ opacity: 1, filter: "blur(0px)", y: 0 }}
+          transition={{
+            ease: [0, -0.005, 0.226, 1],
+            duration: 0.75,
+            delay: 0.375,
+          }}
+        >
+          Last updated August 21, 2026
+        </motion.p>
       </div>
 
       <motion.div
         className={styles.backgroundContainer}
         initial={{ y: 400, opacity: 0 }}
         animate={backgroundControls}
-      >
-        <Image
-          src="/gradient-raw.webp"
-          alt="Gradient background"
-          loading="eager"
-          fill
-          className={styles.background}
-        />
-      </motion.div>
+      ></motion.div>
       <motion.div
         className={styles.grain}
         initial={{ opacity: 0 }}
