@@ -71,9 +71,7 @@ export default function Home() {
                 delay: 0.075,
               }}
             >
-              Computer Engineering Student @ <Link href="https://case.edu" width="250px">
-                Case Western Reserve University
-              </Link>
+              Computer Engineering Student @ <Link href="https://case.edu" width="250px">Case Western Reserve University</Link>
             </motion.div>
           </motion.div>
         </motion.div>

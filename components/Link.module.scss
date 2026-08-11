@@ -12,7 +12,7 @@
         .spacer {
             pointer-events: auto;
         }
-        .link::after {
+        &::after {
             background-color: #1A1A1A;
         }
     }
@@ -26,10 +26,10 @@
     transition: filter 0.4s ease;
 }
 
-.link::after {
+.linkWrapper::after {
     content: "";
     position: absolute;
-    bottom: 2px;
+    bottom: 2.5px;
     left: 0;
     height: 1px;
     z-index: 2;
