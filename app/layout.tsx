@@ -24,7 +24,25 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${inter.variable} ${dmSerif.variable}`}>
+    <html
+      lang="en"
+      className={`${inter.variable} ${dmSerif.variable}`}
+      suppressHydrationWarning
+    >
+      <head>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+                    (function() {
+                      const saved = localStorage.getItem('theme');
+                      if (saved) {
+                        document.documentElement.setAttribute('data-theme', saved);
+                      }
+                    })();
+                  `,
+          }}
+        />
+      </head>
       <body>{children}</body>
     </html>
   );

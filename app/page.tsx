@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "@/components/Link";
+import ThemeToggle from "@/components/ThemeToggle";
 import { motion, useAnimationControls } from "framer-motion";
 import { useEffect } from "react";
 import styles from "./page.module.scss";
@@ -17,7 +18,7 @@ export default function Home() {
 
   useEffect(() => {
     grainControls.start({
-      opacity: 0.4,
+      opacity: 0.2,
       transition: { ease: [0, -0.005, 0.226, 1], duration: 3, delay: 0.4 },
     });
   }, [grainControls]);
@@ -46,11 +47,12 @@ export default function Home() {
 
   return (
     <div className={styles.page} onMouseUp={handleMouseUp}>
+      <ThemeToggle />
       <div className={styles.contentContainer}>
         <motion.div className={styles.header}>
           <motion.div className={styles.titleSection}>
-            <motion.h1
-              className={styles.title}
+            <motion.div
+              className={styles.titleContainer}
               initial={{ opacity: 0, filter: "blur(10px)", y: 10 }}
               animate={{ opacity: 1, filter: "blur(0px)", y: 0 }}
               transition={{
@@ -59,8 +61,8 @@ export default function Home() {
                 delay: 0.0,
               }}
             >
-              Sam Gordon
-            </motion.h1>
+              <h1 className={styles.title}>Sam Gordon</h1>
+            </motion.div>
             <motion.div
               className={styles.education}
               initial={{ opacity: 0, filter: "blur(10px)", y: 10 }}
@@ -71,7 +73,10 @@ export default function Home() {
                 delay: 0.075,
               }}
             >
-              Computer Engineering Student @ <Link href="https://case.edu" width="250px">Case Western Reserve University</Link>
+              Computer Engineering Student @{" "}
+              <Link href="https://case.edu" width="250px">
+                Case Western Reserve University
+              </Link>
             </motion.div>
           </motion.div>
         </motion.div>
@@ -149,7 +154,8 @@ export default function Home() {
           .
         </motion.div>
 
-        <motion.p className={styles.date}
+        <motion.p
+          className={styles.date}
           initial={{ opacity: 0, filter: "blur(5px)", y: 10 }}
           animate={{ opacity: 1, filter: "blur(0px)", y: 0 }}
           transition={{

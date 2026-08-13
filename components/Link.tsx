@@ -102,24 +102,6 @@ export default function Link({
                 (e.target as HTMLElement).style.display = "none";
               }}
             />
-            {/*<div className={styles.description}>
-              <p className={styles.url}>{href}</p>
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="12"
-                height="12"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="#888"
-                strokeWidth="1"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                className={styles.arrow}
-              >
-                <path d="M7 7h10v10"></path>
-                <path d="M7 17 17 7"></path>
-              </svg>
-            </div>*/}
           </div>
         </>
       )}

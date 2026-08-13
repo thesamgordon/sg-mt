@@ -1,7 +1,53 @@
+:root {
+  color-scheme: light dark;
+
+  --bg-primary: light-dark(#ffffff, #0a0a0a);
+  --text-primary: light-dark(#1A1A1A, #E5E5E5);
+  --text-secondary: light-dark(#555, #A0A0A0);
+  --text-tertiary: light-dark(#999, #666666);
+  --border: light-dark(#DDD, #3d3d3d);
+  --grain-opacity: light-dark(0.2, 0.05);
+}
+
+:root[data-theme="light"] {
+  color-scheme: light;
+}
+
+:root[data-theme="dark"] {
+  color-scheme: dark;
+}
+
+::view-transition-old(root) {
+  animation: lift-out 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  z-index: 2;
+}
+
+::view-transition-new(root) {
+  animation: drop-in 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  z-index: 1;
+}
+
+@keyframes lift-out {
+  to {
+    opacity: 0;
+    transform: scale(1.03);
+    filter: blur(12px);
+  }
+}
+
+@keyframes drop-in {
+  from {
+    opacity: 0;
+    transform: scale(0.97);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
 html {
     height: 100%;
-    background-color: #fafafa;
-    color: white;
+    color: var(--text-primary);
 }
 
 html,
@@ -16,6 +62,8 @@ body {
 
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    background-color: var(--bg-primary);
+
 }
 
 * {

@@ -33,7 +33,17 @@
     .titleSection {
         display: flex;
         flex-direction: column;
+        width: 100%;
         gap: 0.5rem;
+
+        .titleContainer {
+            display: flex;
+            flex-direction: row;
+            align-items: start;
+            justify-content: space-between;
+            gap: 0.5rem;
+            width: 100%;
+        }
     }
 
     .title {
@@ -43,12 +53,12 @@
         line-height: 1;
         letter-spacing: -0.25rem;
         font-weight: 550;
-        color: #000;
+        color: var(--text-primary);
     }
 
     .education {
         font-family: var(--font-inter);
-        color: #555;
+        color: var(--text-secondary);
         font-size: 1rem;
         margin: 0;
         display: flex;
@@ -81,7 +91,7 @@
 
 .date {
     font-family: var(--font-inter);
-    color: #999;
+    color: var(--text-tertiary);
     font-size: 0.8rem;
     margin: 0;
     margin-top: 1rem;
@@ -95,7 +105,7 @@
 
 .description {
     font-family: var(--font-inter);
-    color: #555;
+    color: var(--text-secondary)    ;
     font-weight: 450;
     font-size: 1rem;
     max-width: 800px;
@@ -133,7 +143,7 @@
     background-repeat: repeat;
     background-size: 300px;
     background-image: url("/grain.webp");
-    opacity: 0.2;
+    opacity: var(--grain-opacity);
     mask-image: radial-gradient(
         ellipse 180% 100% at 50% 100%,
         rgba(0, 0, 0, 0) 0%,
