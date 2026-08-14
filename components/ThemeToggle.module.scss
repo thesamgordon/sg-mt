@@ -24,6 +24,13 @@
   }
 }
 
+@media (max-width: 768px) {
+  .themeToggle {
+    top: 2rem;
+    right: 20px;
+  }
+}
+
 .icon {
   position: absolute;
   transition:
