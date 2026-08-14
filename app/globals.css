@@ -20,6 +20,8 @@
 ::view-transition-old(root) {
   animation: lift-out 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
   z-index: 2;
+  will-change: filter, transform, opacity;
+  transform: translateZ(0);
 }
 
 ::view-transition-new(root) {

@@ -41,16 +41,14 @@
 
   .iconMoon {
     opacity: 0;
-    transform: scale(0.4) rotate(-45deg);
-    filter: blur(4px);
+    transform: scale(0.4) rotate(-70deg);
   }
 }
 
 :global(:root[data-theme="dark"]) {
   .iconSun {
     opacity: 0;
-    transform: scale(0.4) rotate(45deg);
-    filter: blur(4px);
+    transform: scale(0.4) rotate(70deg);
   }
 
   .iconMoon {
