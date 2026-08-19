@@ -3,6 +3,7 @@
 import { useEffect, useState } from 'react';
 import { Sun, Moon } from 'lucide-react';
 import styles from './ThemeToggle.module.scss';
+import { motion } from 'motion/react';
 
 type Theme = 'light' | 'dark';
 
@@ -42,14 +43,20 @@ export default function ThemeToggle() {
   };
 
   return (
-    <button
+    <motion.button
       onClick={toggleTheme}
       className={styles.themeToggle}
       aria-label="Toggle theme"
       type="button"
-    >
+      initial={{ opacity: 0, filter: "blur(10px)", y: 10 }}
+      animate={{ opacity: 1, filter: "blur(0px)", y: 0 }}
+      transition={{
+        ease: [0, -0.005, 0.226, 1],
+        duration: 0.75,
+        delay: 0.0,
+      }}>
       <Sun className={`${styles.icon} ${styles.iconSun}`} size={20} />
       <Moon className={`${styles.icon} ${styles.iconMoon}`} size={20} />
-    </button>
+    </motion.button>
   );
 }

@@ -154,18 +154,20 @@ export default function Home() {
           .
         </motion.div>
 
-        <motion.p
-          className={styles.date}
-          initial={{ opacity: 0, filter: "blur(5px)", y: 10 }}
-          animate={{ opacity: 1, filter: "blur(0px)", y: 0 }}
-          transition={{
-            ease: [0, -0.005, 0.226, 1],
-            duration: 0.75,
-            delay: 0.375,
-          }}
-        >
-          Last updated August 21, 2026
-        </motion.p>
+        <motion.div>
+          <motion.p
+            className={styles.date}
+            initial={{ opacity: 0, filter: "blur(5px)", y: 10 }}
+            animate={{ opacity: 1, filter: "blur(0px)", y: 0 }}
+            transition={{
+              ease: [0, -0.005, 0.226, 1],
+              duration: 0.75,
+              delay: 0.375,
+            }}
+          >
+            This site was built from scratch without the use of artificial intelligence.
+          </motion.p>
+        </motion.div>
       </div>
 
       <motion.div

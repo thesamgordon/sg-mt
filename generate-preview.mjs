@@ -7,7 +7,6 @@ const EXTERNAL_LINKS = [
   { url: "https://github.com/thesamgordon", mode: "screenshot" },
   { url: "https://ldg.sh/about", mode: "screenshot", scale: 2 },
   { url: "https://github.com/thesamgordon/fohs", mode: "opengraph", scale: 1 },
-  { url: "https://case.edu", mode: "screenshot", scale: 1 }
 ];
 
 const OUTPUT_DIR = path.join(process.cwd(), "public", "previews", "external");
