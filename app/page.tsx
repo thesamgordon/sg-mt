@@ -73,7 +73,7 @@ export default function Home() {
                 delay: 0.075,
               }}
             >
-              Computer Engineering Student @{" "}
+              Computer and Electrical Engineering Student @{" "}
               <Link href="https://case.edu" width="250px">
                 Case Western Reserve University
               </Link>
