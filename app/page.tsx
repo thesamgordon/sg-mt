@@ -2,6 +2,7 @@
 
 import Link from "@/components/Link";
 import ThemeToggle from "@/components/ThemeToggle";
+import { useWindowWidth } from "@/hooks/useWindowWidth";
 import { motion, useAnimationControls } from "framer-motion";
 import { useEffect } from "react";
 import styles from "./page.module.scss";
@@ -15,6 +16,7 @@ declare module "react" {
 export default function Home() {
   const backgroundControls = useAnimationControls();
   const grainControls = useAnimationControls();
+  const width = useWindowWidth();
 
   useEffect(() => {
     grainControls.start({
@@ -63,21 +65,39 @@ export default function Home() {
             >
               <h1 className={styles.title}>Sam Gordon</h1>
             </motion.div>
-            <motion.div
-              className={styles.education}
-              initial={{ opacity: 0, filter: "blur(10px)", y: 10 }}
-              animate={{ opacity: 1, filter: "blur(0px)", y: 0 }}
-              transition={{
-                ease: [0, -0.005, 0.226, 1],
-                duration: 0.75,
-                delay: 0.075,
-              }}
-            >
-              Computer and Electrical Engineering Student @{" "}
-              <Link href="https://case.edu" width="250px">
-                Case Western Reserve University
-              </Link>
-            </motion.div>
+            {width > 768 ? (
+              <motion.div
+                className={styles.education}
+                initial={{ opacity: 0, filter: "blur(10px)", y: 10 }}
+                animate={{ opacity: 1, filter: "blur(0px)", y: 0 }}
+                transition={{
+                  ease: [0, -0.005, 0.226, 1],
+                  duration: 0.75,
+                  delay: 0.075,
+                }}
+              >
+                Computer and Electrical Engineering Student @{" "}
+                <Link href="https://case.edu" width="250px">
+                  Case Western Reserve University
+                </Link>
+              </motion.div>
+            ) : (
+              <motion.div
+                className={styles.education}
+                initial={{ opacity: 0, filter: "blur(10px)", y: 10 }}
+                animate={{ opacity: 1, filter: "blur(0px)", y: 0 }}
+                transition={{
+                  ease: [0, -0.005, 0.226, 1],
+                  duration: 0.75,
+                  delay: 0.075,
+                }}
+              >
+                Computer / Electrical Engineering Student @{" "}
+                <Link href="https://case.edu" width="250px">
+                  Case Western Reserve University
+                </Link>
+              </motion.div>
+            )}
           </motion.div>
         </motion.div>
         <motion.p
@@ -165,7 +185,8 @@ export default function Home() {
               delay: 0.375,
             }}
           >
-            This site was built from scratch without the use of artificial intelligence.
+            This site was built from scratch without the use of artificial
+            intelligence.
           </motion.p>
         </motion.div>
       </div>

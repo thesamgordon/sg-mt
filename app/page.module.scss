@@ -84,7 +84,7 @@
         }
 
         .education {
-            font-size: 1rem;
+            font-size: .9rem;
         }
     }
 }
@@ -153,4 +153,19 @@
     );
     transform: rotate(180deg);
     z-index: 1;
+}
+
+@media (max-width: 768px) {
+    .description {
+        font-size: 0.9rem;
+    }
+
+    .education {
+        font-size: 0.9rem;
+    }
+
+    .page {
+        padding-top: 4rem;
+        padding-bottom: 4rem;
+    }
 }
