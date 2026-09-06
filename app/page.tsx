@@ -135,7 +135,7 @@ export default function Home() {
           , front-of-house display software for theatrical performances and{" "}
           <Link
             width="220px"
-            href="https://ldg.sh/about"
+            href="https://ldg.sg.mt/about"
             onMouseDown={handleMouseDown}
             onMouseUp={handleMouseUp}
           >
