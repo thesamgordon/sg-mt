@@ -76,6 +76,7 @@ export default function Link({
         <>
           <div
             className={styles.spacer}
+            onClick={handlePopupClick}
             style={{
               width: width,
             }}
