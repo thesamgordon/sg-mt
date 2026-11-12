@@ -153,7 +153,17 @@ export default function Home() {
             delay: 0.3,
           }}
         >
-          You can find my work on{" "}
+          You can find my work on my{" "}
+          <Link
+            width="250px"
+            href="https://sg.mt/resume.pdf"
+            popup={false}
+            onMouseDown={handleMouseDown}
+            onMouseUp={handleMouseUp}
+          >
+            resume
+          </Link>
+          , on{" "}
           <Link
             width="250px"
             href="https://github.com/thesamgordon"
